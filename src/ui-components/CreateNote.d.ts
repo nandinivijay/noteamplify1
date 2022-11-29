@@ -5,9 +5,12 @@
  **************************************************************************/
 
 import * as React from "react";
+import { Note } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type CreateNoteProps = React.PropsWithChildren<Partial<FlexProps> & {
+    note?: Note;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function CreateNote(props: CreateNoteProps): React.ReactElement;

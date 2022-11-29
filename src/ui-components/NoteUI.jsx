@@ -9,12 +9,15 @@ import * as React from "react";
 import { Note } from "../models";
 import {
   getOverrideProps,
+  useDataStoreCreateAction,
   useDataStoreDeleteAction,
 } from "@aws-amplify/ui-react/internal";
 import { schema } from "../models/schema";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NoteUI(props) {
   const { note, overrides, ...rest } = props;
+  const vectorThreeOneFourSevenTwoSevenFourFiveOnClick =
+    useDataStoreCreateAction({ fields: {}, model: Note, schema: schema });
   const vectorThreeOneFourSevenTwoSevenFourSevenOnClick =
     useDataStoreDeleteAction({ id: note?.id, model: Note, schema: schema });
   return (
@@ -129,6 +132,9 @@ export default function NoteUI(props) {
                 bottom="3.95%"
                 left="0%"
                 right="0%"
+                onClick={() => {
+                  vectorThreeOneFourSevenTwoSevenFourFiveOnClick();
+                }}
                 {...getOverrideProps(overrides, "Vector31472745")}
               ></Icon>
             </View>

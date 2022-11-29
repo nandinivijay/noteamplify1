@@ -6,16 +6,16 @@
 
 /* eslint-disable */
 import * as React from "react";
+import { Note } from "../models";
 import {
   getOverrideProps,
   useDataStoreCreateAction,
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
-import { Note } from "../models";
 import { schema } from "../models/schema";
 import { Button, Divider, Flex, Icon, TextField } from "@aws-amplify/ui-react";
 export default function CreateNote(props) {
-  const { overrides, ...rest } = props;
+  const { note, overrides, ...rest } = props;
   const [
     textFieldThreeOneSixZeroTwoFourEightFiveValue,
     setTextFieldThreeOneSixZeroTwoFourEightFiveValue,
@@ -93,7 +93,7 @@ export default function CreateNote(props) {
           ></Icon>
         </Flex>
         <TextField
-          label="Title"
+          label={note?.title}
           width="592px"
           shrink="0"
           size="default"
